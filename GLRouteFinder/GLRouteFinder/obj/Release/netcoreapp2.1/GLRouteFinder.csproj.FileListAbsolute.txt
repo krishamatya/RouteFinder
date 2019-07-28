@@ -1,0 +1,13 @@
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\bin\Release\netcoreapp2.1\GLRouteFinder.deps.json
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\bin\Release\netcoreapp2.1\GLRouteFinder.runtimeconfig.json
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\bin\Release\netcoreapp2.1\GLRouteFinder.runtimeconfig.dev.json
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\bin\Release\netcoreapp2.1\GLRouteFinder.dll
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\bin\Release\netcoreapp2.1\GLRouteFinder.pdb
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Release\netcoreapp2.1\GLRouteFinder.csproj.CoreCompileInputs.cache
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Release\netcoreapp2.1\GLRouteFinder.RazorAssemblyInfo.cache
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Release\netcoreapp2.1\GLRouteFinder.RazorAssemblyInfo.cs
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Release\netcoreapp2.1\GLRouteFinder.AssemblyInfoInputs.cache
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Release\netcoreapp2.1\GLRouteFinder.AssemblyInfo.cs
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Release\netcoreapp2.1\GLRouteFinder.RazorTargetAssemblyInfo.cache
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Release\netcoreapp2.1\GLRouteFinder.dll
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Release\netcoreapp2.1\GLRouteFinder.pdb
