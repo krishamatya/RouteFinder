@@ -238,7 +238,7 @@ namespace GLRouteFinder
 
                 closed.Add(path.LastStep);
 
-                foreach (TNode n in path.LastStep.Neighbours.Distinct())
+                foreach (TNode n in path.LastStep.Neighbours)
                 {
                   
                     double d = distance(path.LastStep, n);

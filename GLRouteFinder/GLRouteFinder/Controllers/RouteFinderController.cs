@@ -30,16 +30,20 @@ namespace GLRouteFinder.Controllers
                 DistanceType distanceType = DistanceType.km;
 
                 RouterFinder.FillGraphWithEarthMap(graph, distanceType);
-                foreach (Node n in graph.Nodes.Cast<Node>().OrderBy(n => n.Key))
-                {
-                    Console.WriteLine(n.Key);
-                }
+                //foreach (Node n in graph.Nodes.Cast<Node>().OrderBy(n => n.Key))
+                //{
+                //    if (n.Key == "ABJ")
+                //    {
+                        
+                //    }
+                //    Console.WriteLine(n.Key);
+                //}
 
 
 
                 Node start = graph.Nodes[startCity];
                 Node destination = graph.Nodes[destinationCity];
-                
+               
                 if (start == null)
                 {
                     return new ResponseRoute()
@@ -62,7 +66,7 @@ namespace GLRouteFinder.Controllers
                 // Function which tells us the exact distance between two neighbours.
                 Func<Node, Node, double> distance = (node1, node2) =>
                 
-                node1.Neighbors.Cast<EdgeToNeighbor>().Distinct().Single(etn => etn.Neighbor.Key == node2.Key).Cost;
+                node1.NeighborsList.Single(etn => etn.Neighbor.Key == node2.Key).Cost;
 
                 // Estimation/Heuristic function (Manhattan distance)
                 // It tells us the estimated distance between the last node on a proposed path and the destination node.

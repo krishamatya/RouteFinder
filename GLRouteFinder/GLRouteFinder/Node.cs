@@ -152,9 +152,16 @@ namespace GLRouteFinder
                 }
             }
         }
-       
-       
-        
+        public IEnumerable<EdgeToNeighbor> NeighborsList
+        {
+            get
+            {
+                return Neighbors.Cast<EdgeToNeighbor>().GroupBy(x => x.Neighbor.Key).Select(g => g.First()).ToList();
+               
+            }
+        }
+
+ 
 
 
         #endregion
@@ -200,7 +207,7 @@ namespace GLRouteFinder
                 Neighbors.Add(e);
             }
             else {
-                var record = Neighbors.Cast<EdgeToNeighbor>().Distinct();
+                var record = Neighbors.Cast<EdgeToNeighbor>().ToList();
                 if (!record.Contains(e))
                 {
                     Neighbors.Add(e);
@@ -208,7 +215,8 @@ namespace GLRouteFinder
                
 
             }
-            
+           
+
         }
 
        
@@ -222,4 +230,6 @@ namespace GLRouteFinder
 
         #endregion
     }
+
+    
 }
