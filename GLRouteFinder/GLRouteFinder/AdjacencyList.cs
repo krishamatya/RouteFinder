@@ -27,8 +27,7 @@ namespace GLRouteFinder
 			get { return (EdgeToNeighbor)   base.InnerList[index]; }
 			set { base.InnerList[index] = value; }
 		}
-        
 
-       
+        
     }
 }

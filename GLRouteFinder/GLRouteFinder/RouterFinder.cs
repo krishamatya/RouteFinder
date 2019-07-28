@@ -29,13 +29,6 @@ namespace GLRouteFinder
                 {
                     foreach (var item in vertexes)
                     {
-                        //if (item.Latitute is string) {
-                        //    if (item.Longitude.Contains(",")) {
-                        //        var record = item.Longitude.Split(",");
-                        //        item.Latitute = record[0];
-                        //        item.Longitude = record[1];
-                        //    }
-                        //}
                         Node n = new Node(item.IATA3, null, Convert.ToDouble(item.Latitute), Convert.ToDouble(item.Longitude));
                         graph.AddNode(n);
                     }
@@ -228,9 +221,9 @@ namespace GLRouteFinder
         public static  Path<TNode> FindPath<TNode>(TNode start,TNode destination, Func<TNode, TNode, double> distance, Func<TNode, double> estimate) where TNode:IHasNeighbours<TNode>
         {
             var closed = new HashSet<TNode>();
-
+            
             var queue = new PriorityQueue<double, Path<TNode>>();
-
+            
             queue.Enqueue(0, new Path<TNode>(start));
 
             while (!queue.IsEmpty)
@@ -247,6 +240,7 @@ namespace GLRouteFinder
 
                 foreach (TNode n in path.LastStep.Neighbours.Distinct())
                 {
+                  
                     double d = distance(path.LastStep, n);
 
                     var newPath = path.AddStep(n, d);

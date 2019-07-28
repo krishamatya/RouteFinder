@@ -1,5 +1,7 @@
+
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GLRouteFinder
 {
@@ -98,7 +100,7 @@ namespace GLRouteFinder
             }
             else
             {
-               
+              
                 Neighbors = neighbors;
             }
         }
@@ -150,8 +152,11 @@ namespace GLRouteFinder
                 }
             }
         }
-
        
+       
+        
+
+
         #endregion
 
         #region Public Methods
@@ -172,7 +177,8 @@ namespace GLRouteFinder
         /// <param name="cost">The weight of the edge.</param>
         internal void AddDirected(Node n, int cost)
         {
-            AddDirected(new EdgeToNeighbor(n, cost));
+            
+                AddDirected(new EdgeToNeighbor(n, cost));
         }
 
         /// <summary>
@@ -189,9 +195,23 @@ namespace GLRouteFinder
         /// </summary>
         internal void AddDirected(EdgeToNeighbor e)
         {
-             Neighbors.Add(e);
+            if (Neighbors.Count == 0)
+            {
+                Neighbors.Add(e);
+            }
+            else {
+                var record = Neighbors.Cast<EdgeToNeighbor>().Distinct();
+                if (!record.Contains(e))
+                {
+                    Neighbors.Add(e);
+                }
+               
+
+            }
+            
         }
-        
+
+       
         #endregion
 
         public override string ToString()

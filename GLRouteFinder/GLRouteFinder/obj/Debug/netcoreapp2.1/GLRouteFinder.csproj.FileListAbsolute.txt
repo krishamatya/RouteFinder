@@ -11,3 +11,4 @@ H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Debug\netcoreapp2.1\GLRout
 H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Debug\netcoreapp2.1\GLRouteFinder.RazorTargetAssemblyInfo.cache
 H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Debug\netcoreapp2.1\GLRouteFinder.dll
 H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Debug\netcoreapp2.1\GLRouteFinder.pdb
+H:\back-end-take-home\GLRouteFinder\GLRouteFinder\obj\Debug\netcoreapp2.1\GLRouteFinder.csprojAssemblyReference.cache
