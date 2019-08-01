@@ -4,43 +4,38 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using GLRouteFinder;
 namespace GLRouteFinder.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class RouteFinderController : ControllerBase
     {
-        public RouteFinderController() { }
+        
+        private readonly IRouterFinder routerFinder;
+        public RouteFinderController(IRouterFinder _routerFinder) {
+            routerFinder = _routerFinder;
+        }
 
         [HttpGet("SearchRoute")]
-        public  IActionResult SearchRoute(string origin, string destination) {
+        public  IActionResult SearchRoute(string origin, string destination)
+        {
             var data = GetShortestPath(origin, destination);
             
             return Ok(data);
             
         }
 
-        public static ResponseRoute GetShortestPath(string startCity, string destinationCity) {
+        private  ResponseRoute GetShortestPath(string startCity, string destinationCity) {
             try
             {
                 // Creating the Graph...
                 Graph graph = new Graph();
 
                 DistanceType distanceType = DistanceType.km;
-
-                RouterFinder.FillGraphWithEarthMap(graph, distanceType);
-                //foreach (Node n in graph.Nodes.Cast<Node>().OrderBy(n => n.Key))
-                //{
-                //    if (n.Key == "ABJ")
-                //    {
-                        
-                //    }
-                //    Console.WriteLine(n.Key);
-                //}
-
-
-
+                
+                routerFinder.FillGraphWithEarthMap(graph, distanceType);
+               
                 Node start = graph.Nodes[startCity];
                 Node destination = graph.Nodes[destinationCity];
                
@@ -97,9 +92,7 @@ namespace GLRouteFinder.Controllers
                             responsePath.distanceType = distanceType;
                             pathList.Add(responsePath);
                             finalShortest = finalShortest + "->" + responsePath.LastStepKey;
-                            //Console.WriteLine(string.Format("From {0, -15}  to  {1, -15} -> Total cost = {2:#.###} {3}",
-                            //                  path.PreviousSteps.LastStep.Key, path.LastStep.Key, path.TotalCost, distanceType));
-
+                          
                         }
                     }
                     return new ResponseRoute()

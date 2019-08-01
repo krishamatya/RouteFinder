@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GLRouteFinder.Data;
+using GLRouterFinder;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,12 +29,19 @@ namespace GLRouteFinder
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<DbContextMain>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+           
+
+             services.AddDbContext<DbContextMain>(options =>options.UseSqlServer(Configuration.GetSection("ConnectionStrings:DefaultConnection").Value));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "GLRouteFinder API", Version = "v1" });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddScoped(typeof(IRouterFinder), typeof(RouterFinder));
+            services.AddScoped(typeof(IDapperManager), typeof(DapperManager));
+            services.AddScoped(typeof(IGLRouterFinderServices), typeof(GLRouterFinderServices));
+            services.AddScoped(typeof(IGLRouterFinderRepository), typeof(GLRouteFinderRepository));
+            services.AddScoped(typeof(IDataBaseFactory), typeof(DataBaseFactory));
             services.AddScoped(typeof(IHasNeighbours<Node>),typeof(Node));
             services.AddCors(options =>
             {

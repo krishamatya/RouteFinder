@@ -5,6 +5,14 @@ VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GLRouteFinder", "GLRouteFinder\GLRouteFinder.csproj", "{FA1D4AEF-A53B-4E6A-AA5B-AD8F3BC0B975}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLRouteFinder.Data", "GLRouteFinder.Data\GLRouteFinder.Data.csproj", "{694DA2DE-7495-4F78-A528-CC76DCAF7F86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLRouteFinder.Service", "GLRouteFinder.Service\GLRouteFinder.Service.csproj", "{7F536FF9-7A7B-45FC-8D63-ADCD195E70AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLRouterFinder.Repository", "GLRouterFinder.Repository\GLRouterFinder.Repository.csproj", "{A29B823C-E087-497A-992C-B8E151C8BC26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GLRouteFinder.Common", "GLRouteFinder.Common\GLRouteFinder.Common.csproj", "{6AFC6E7C-29B1-4E34-88F8-DDA21946EB28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{FA1D4AEF-A53B-4E6A-AA5B-AD8F3BC0B975}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA1D4AEF-A53B-4E6A-AA5B-AD8F3BC0B975}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA1D4AEF-A53B-4E6A-AA5B-AD8F3BC0B975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{694DA2DE-7495-4F78-A528-CC76DCAF7F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{694DA2DE-7495-4F78-A528-CC76DCAF7F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{694DA2DE-7495-4F78-A528-CC76DCAF7F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{694DA2DE-7495-4F78-A528-CC76DCAF7F86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F536FF9-7A7B-45FC-8D63-ADCD195E70AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F536FF9-7A7B-45FC-8D63-ADCD195E70AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F536FF9-7A7B-45FC-8D63-ADCD195E70AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F536FF9-7A7B-45FC-8D63-ADCD195E70AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29B823C-E087-497A-992C-B8E151C8BC26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29B823C-E087-497A-992C-B8E151C8BC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29B823C-E087-497A-992C-B8E151C8BC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29B823C-E087-497A-992C-B8E151C8BC26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AFC6E7C-29B1-4E34-88F8-DDA21946EB28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AFC6E7C-29B1-4E34-88F8-DDA21946EB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AFC6E7C-29B1-4E34-88F8-DDA21946EB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AFC6E7C-29B1-4E34-88F8-DDA21946EB28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
