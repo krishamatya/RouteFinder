@@ -105,10 +105,6 @@ namespace GLRouteFinder
 
             return null;
         }
-
-       
-
-
     }
 
     public interface IRouterFinder{
