@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using GLRouteFinder;
+using Microsoft.Extensions.Options;
+
 namespace GLRouteFinder.Controllers
 {
     [Route("api/[controller]")]
@@ -13,8 +15,10 @@ namespace GLRouteFinder.Controllers
     {
         
         private readonly IRouterFinder routerFinder;
-        public RouteFinderController(IRouterFinder _routerFinder) {
+        private readonly IOptions<ConnectionStrings> _appSettings;
+        public RouteFinderController(IRouterFinder _routerFinder,IOptions<ConnectionStrings> appsettings) {
             routerFinder = _routerFinder;
+            _appSettings = appsettings;
         }
 
         [HttpGet("SearchRoute")]
@@ -25,6 +29,7 @@ namespace GLRouteFinder.Controllers
             return Ok(data);
             
         }
+       
 
         private  ResponseRoute GetShortestPath(string startCity, string destinationCity) {
             try
@@ -33,8 +38,8 @@ namespace GLRouteFinder.Controllers
                 Graph graph = new Graph();
 
                 DistanceType distanceType = DistanceType.km;
-                
-                routerFinder.FillGraphWithEarthMap(graph, distanceType);
+
+                routerFinder.FillGraphWithEarthMapAsync(graph, distanceType);
                
                 Node start = graph.Nodes[startCity];
                 Node destination = graph.Nodes[destinationCity];
@@ -59,9 +64,7 @@ namespace GLRouteFinder.Controllers
                 }
 
                 // Function which tells us the exact distance between two neighbours.
-                Func<Node, Node, double> distance = (node1, node2) =>
-                
-                node1.NeighborsList.Single(etn => etn.Neighbor.Key == node2.Key).Cost;
+                Func<Node, Node, double> distance = (node1, node2) => node1.NeighborsList.Single(etn => etn.Neighbor.Key == node2.Key).Cost;
 
                 // Estimation/Heuristic function (Manhattan distance)
                 // It tells us the estimated distance between the last node on a proposed path and the destination node.

@@ -19,6 +19,7 @@ namespace GLRouteFinder
 {
     public class Startup
     {
+       
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,13 +30,15 @@ namespace GLRouteFinder
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
 
-             services.AddDbContext<DbContextMain>(options =>options.UseSqlServer(Configuration.GetSection("ConnectionStrings:DefaultConnection").Value));
+           
+            services.AddDbContext<DbContextMain>(options =>options.UseSqlServer(Configuration.GetSection("ConnectionStrings:DefaultConnection").Value));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "GLRouteFinder API", Version = "v1" });
             });
+
+            services.Configure<ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddScoped(typeof(IRouterFinder), typeof(RouterFinder));
             services.AddScoped(typeof(IDapperManager), typeof(DapperManager));
@@ -54,6 +57,7 @@ namespace GLRouteFinder
                             .AllowAnyMethod();
                     });
             });
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
