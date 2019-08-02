@@ -1,0 +1,12 @@
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\bin\Release\netcoreapp2.1\GLRouterFinder.Repository.deps.json
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\bin\Release\netcoreapp2.1\GLRouterFinder.Repository.dll
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\bin\Release\netcoreapp2.1\GLRouterFinder.Repository.pdb
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\bin\Release\netcoreapp2.1\GLRouteFinder.Data.dll
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\bin\Release\netcoreapp2.1\GLRouteFinder.Data.pdb
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\obj\Release\netcoreapp2.1\GLRouterFinder.Repository.csprojAssemblyReference.cache
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\obj\Release\netcoreapp2.1\GLRouterFinder.Repository.csproj.CoreCompileInputs.cache
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\obj\Release\netcoreapp2.1\GLRouterFinder.Repository.AssemblyInfoInputs.cache
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\obj\Release\netcoreapp2.1\GLRouterFinder.Repository.AssemblyInfo.cs
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\obj\Release\netcoreapp2.1\GLRouterFinder.Repository.csproj.CopyComplete
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\obj\Release\netcoreapp2.1\GLRouterFinder.Repository.dll
+H:\RouteFinder\GLRouteFinder\GLRouterFinder.Repository\obj\Release\netcoreapp2.1\GLRouterFinder.Repository.pdb
