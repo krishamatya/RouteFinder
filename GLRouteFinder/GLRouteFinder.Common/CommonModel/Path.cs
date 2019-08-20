@@ -6,6 +6,11 @@ using System.Collections;
 
 namespace GLRouteFinder
 {
+
+    /// <summary>
+    /// Immutable Stack Of Nodes that tracks the total Cost of WholePath.Trivial Implementation of IEnumerable.They cannot be modified so they are thread safe.
+    /// </summary>
+    /// <typeparam name="Node"></typeparam>
    public class Path<Node> : IEnumerable<Path<Node>> 
     {
         public Node LastStep { get; private set; }

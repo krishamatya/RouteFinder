@@ -19,13 +19,106 @@ namespace GLRouteFinder
         /// <param name="graph">The Graph to be filled</param>
         /// <param name="distanceType">The DistanceType (KM or Miles) between neighbor cities</param>
         /// 
-      
+        private readonly Graph graph = new Graph();
         private readonly IGLRouterFinderServices routerFinderServices;
        
-        public RouterFinder(IGLRouterFinderServices services) {
+        public RouterFinder(IGLRouterFinderServices services)
+        {
             routerFinderServices = services;
         }
-        public void  FillGraphWithEarthMapAsync(Graph graph, DistanceType distanceType)
+
+        public dynamic GetShortestPath(string startCity, string destinationCity)
+        {
+            try
+            {
+                // Creating the Graph...
+                
+
+                FillGraphWithEarthMapAsync(graph, DistanceType.km);
+
+                Node start = graph.Nodes[startCity];
+                Node destination = graph.Nodes[destinationCity];
+
+                if (start == null)
+                {
+                    return new 
+                    {
+
+                        StatusCode = 400,
+                        StatusMessage = "Invalid Origin"
+                    };
+                }
+                if (destination == null)
+                {
+                    return new 
+                    {
+
+                        StatusCode = 400,
+                        StatusMessage = "Invalid Destination"
+                    };
+                }
+
+                // Function which tells us the exact distance between two neighbours.
+                Func<Node, Node, double> distance = (node1, node2) => node1.NeighborsList.Single(etn => etn.Neighbor.Key == node2.Key).Cost;
+
+                // Estimation/Heuristic function (Manhattan distance)
+                // It tells us the estimated distance between the last node on a proposed path and the destination node.
+                //Func<Node, double> manhattanEstimation = n => Math.Abs(n.X - destination.X) + Math.Abs(n.Y - destination.Y);
+
+                // Estimation/Heuristic function (Haversine distance)
+                // It tells us the estimated distance between the last node on a proposed path and the destination node.
+                Func<Node, double> haversineEstimation =
+                    n => Haversine.Distance(n, destination, DistanceType.km);
+
+                // Path<Node> shortestPath = FindPath(start, destination, distance, manhattanEstimation);
+                Path<Node> shortestPath = FindPath(start, destination, distance, haversineEstimation);
+
+                string finalShortest = startCity;
+               
+                // Prints the shortest path.
+
+                if (shortestPath != null)
+                {
+                    foreach (Path<Node> path in shortestPath.Reverse())
+                    {
+                        if (path.PreviousSteps != null)
+                        {
+                            finalShortest = finalShortest + "->" + path.LastStep.Key;
+                        }
+                    }
+                    return new {
+                       
+                        ShortestRoute = finalShortest,
+                        StatusCode = 200,
+                        StatusMessage = "Success"
+                    };
+                }
+                else
+                {
+                    return new 
+                    {
+
+                        StatusCode = 400,
+                        StatusMessage = "No Shortest Route"
+                    };
+
+                }
+            }
+            catch (Exception ex)
+            {
+                return new
+                {
+
+                    StatusCode = 400,
+                    StatusMessage = ex.Message
+                };
+            }
+
+
+
+        }
+
+        private void  FillGraphWithEarthMapAsync(Graph graph, DistanceType distanceType)
         {
             var routes =  routerFinderServices.GetRoutesDapper();
             
@@ -43,7 +136,7 @@ namespace GLRouteFinder
                 }
             }
             catch (Exception ex) {
-
+                throw new Exception(ex.Message);
             }
 
             if (routes != null )
@@ -51,7 +144,7 @@ namespace GLRouteFinder
                
                 foreach (var item in routes)
                 {
-                    var nodeOrigin = graph.Nodes[item.Origin];
+                    var nodeOrigin = graph.Nodes[item.origin];
                     var nodeDestination = graph.Nodes[item.Destination];
                     graph.AddUndirectedEdge(nodeOrigin, nodeDestination, Haversine.Distance(nodeOrigin, nodeDestination, distanceType));
                 }
@@ -72,7 +165,7 @@ namespace GLRouteFinder
         /// <param name="estimate">Function which tells us the estimated distance between the last node on a proposed path and the
         /// destination node.</param>
         /// <returns></returns>
-        public static Path<TNode> FindPath<TNode>(TNode start, TNode destination, Func<TNode, TNode, double> distance, Func<TNode, double> estimate) where TNode : IHasNeighbours<TNode>
+        private  Path<TNode> FindPath<TNode>(TNode start, TNode destination, Func<TNode, TNode, double> distance, Func<TNode, double> estimate) where TNode : IHasNeighbours<TNode>
         {
             var closed = new HashSet<TNode>();
 
@@ -108,8 +201,8 @@ namespace GLRouteFinder
     }
 
     public interface IRouterFinder{
-        void FillGraphWithEarthMapAsync(Graph graph, DistanceType distanceType);
-
+        
+        dynamic GetShortestPath(string startCity, string destinationCity);
 
     }
 }

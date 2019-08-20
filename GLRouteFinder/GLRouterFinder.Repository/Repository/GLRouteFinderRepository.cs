@@ -16,14 +16,14 @@ namespace GLRouterFinder
             _dapperManager = dapperManager;
         }
        
-        public IEnumerable<airportsVM> GetVertexesDapper()
+        public IEnumerable<dynamic> GetVertexesDapper()
         {
-            var data = _dapperManager.QueryAsync<airportsVM>(sql: "usp_GetVertexes",  commandType: CommandType.StoredProcedure);
+            var data = _dapperManager.QueryAsync(sql: "usp_GetVertexes",  commandType: CommandType.StoredProcedure);
             return data.Result;
         }
-        public IEnumerable<routesVM> GetRoutesDapper()
+        public IEnumerable<dynamic> GetRoutesDapper()
         {
-            var data =  _dapperManager.QueryAsync<routesVM>(sql: "usp_GetRoutes", commandType: CommandType.StoredProcedure);
+            var data =  _dapperManager.QueryAsync(sql: "usp_GetRoutes", commandType: CommandType.StoredProcedure);
             return data.Result;
         }
     }

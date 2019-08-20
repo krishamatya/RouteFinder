@@ -9,7 +9,7 @@ namespace GLRouterFinder
    public interface IGLRouterFinderRepository
     {
 
-        IEnumerable<airportsVM> GetVertexesDapper();
-        IEnumerable<routesVM> GetRoutesDapper();
+        IEnumerable<dynamic> GetVertexesDapper();
+        IEnumerable<dynamic> GetRoutesDapper();
     }
 }

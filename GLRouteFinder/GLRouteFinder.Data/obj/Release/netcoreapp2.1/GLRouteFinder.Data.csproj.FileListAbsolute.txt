@@ -6,3 +6,4 @@ H:\RouteFinder\GLRouteFinder\GLRouteFinder.Data\obj\Release\netcoreapp2.1\GLRout
 H:\RouteFinder\GLRouteFinder\GLRouteFinder.Data\obj\Release\netcoreapp2.1\GLRouteFinder.Data.AssemblyInfo.cs
 H:\RouteFinder\GLRouteFinder\GLRouteFinder.Data\obj\Release\netcoreapp2.1\GLRouteFinder.Data.dll
 H:\RouteFinder\GLRouteFinder\GLRouteFinder.Data\obj\Release\netcoreapp2.1\GLRouteFinder.Data.pdb
+H:\RouteFinder\GLRouteFinder\GLRouteFinder.Data\obj\Release\netcoreapp2.1\GLRouteFinder.Data.csprojAssemblyReference.cache

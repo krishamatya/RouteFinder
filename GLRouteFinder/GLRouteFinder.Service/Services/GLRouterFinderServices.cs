@@ -12,12 +12,12 @@ namespace GLRouteFinder
         public GLRouterFinderServices(IGLRouterFinderRepository routerFinderRepository) {
             _routerFinderRepository = routerFinderRepository;
         }
-        public  IEnumerable<airportsVM> GetVertexesDapper()
+        public  IEnumerable<dynamic> GetVertexesDapper()
         {
            return  _routerFinderRepository.GetVertexesDapper();
 
         }
-        public  IEnumerable<routesVM> GetRoutesDapper()
+        public  IEnumerable<dynamic> GetRoutesDapper()
         {
             return  _routerFinderRepository.GetRoutesDapper();
 

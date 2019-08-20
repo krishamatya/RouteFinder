@@ -6,6 +6,11 @@ using System.Text;
 
 namespace GLRouteFinder
 {
+    /// <summary>
+    /// High Priority with least estimated cost out of all path under consideration.
+    /// </summary>
+    /// <typeparam name="P"></typeparam>
+    /// <typeparam name="V"></typeparam>
     public class PriorityQueue<P, V> : IEnumerable
     {
         private SortedDictionary<P, Queue<V>> list = new SortedDictionary<P, Queue<V>>();
